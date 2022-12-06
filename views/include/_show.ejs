@@ -1,0 +1,25 @@
+<% if(users.length > 0) {%>
+    <% for(let i = 0; i < users.length; i++) {%>
+        <tr>
+            <td><%= i + 1 %></td>
+            <td><%= users[i].name %></td>
+            <td><%= users[i].email %></td>
+            <td class="text-capitalize"><%= users[i].gender %></td>
+            <td><%= users[i].status ? 'Active' : 'Inactive' %></td>
+            <td>
+                <a class="btn border-shadow update" href="/edit-user?id=<%= users[i].id %>">
+                <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                </a>
+                <a
+                class="btn border-shadow delete delete-btn"
+                onclick="deleteUser('<%= users[i].id %>')"
+                >
+                <span class="text-gradient"><i class="fas fa-times"></i></span>
+                </a>
+            </td>
+        </tr>
+    <% } %>
+<% } else { %>
+    <tr class="disable-hover"><td colspan="6">No data Found.<a href="/add-user"> Add New User</a></td></tr>
+<% } %>
+
