@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Local Setup
 // const connectDB = () => {
 //     const url = `mongodb://localhost/${process.env.DB || 'user-management'}`;
 //     mongoose.connect(url, { useNewUrlParser: true });
@@ -9,6 +10,7 @@ const mongoose = require("mongoose");
 //     });
 // };
 
+// Cloud Setup
 const connectDB = async() => {
     try {
         const con = await mongoose.connect(process.env.MONGO_URI, {
